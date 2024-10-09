@@ -7,6 +7,8 @@ services:
       - 9987:9987/udp
       - 10011:10011
       - 30033:30033
+    volumes:
+      - ./data:/var/ts3server
     environment:
       TS3SERVER_DB_PLUGIN: ts3db_mariadb
       TS3SERVER_DB_SQLCREATEPATH: create_mariadb
@@ -19,6 +21,8 @@ services:
   db:
     image: mariadb
     restart: always
+    volumes:
+      - ./data/mysql:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: example
       MYSQL_DATABASE: teamspeak
